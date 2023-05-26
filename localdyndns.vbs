@@ -13,7 +13,7 @@ arrLines = Split(strContents, vbNewLine)
 Set objTS = objFS.OpenTextFile(strFileName, FOR_WRITING) 
 
 For i= 0 To UBound(arrLines) 
-   If InStr(arrLines(i),cmdline.Item("mac"))=0 Then 
+   If (InStr(arrLines(i),cmdline.Item("mac"))=0) and (len(arrLines(i))>0) Then 
       objTS.WriteLine arrLines(i) 
    End If
 Next
